@@ -1,6 +1,3 @@
-Django
+Django>=4.2
 gunicorn
-pillow
-djangorestframework
-psycopg2-binary
-web: gunicorn blog.wsgi
+whitenoise
