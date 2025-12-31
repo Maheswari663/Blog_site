@@ -1,0 +1,61 @@
+{% extends 'base.html' %}
+{% block title %}{{ post.title }}{% endblock %}
+
+{% block content %}
+
+
+<style>
+.card {
+    border-radius: 20px !important;
+}
+
+.btn {
+    border-radius: 10px;
+}
+</style>
+
+
+
+
+<div class="col-lg-8 mx-auto">
+
+    <div class="card shadow-lg border-0 rounded-4 p-4">
+
+        <!-- Title -->
+        <h1 class="fw-bold mb-3 text-primary">{{ post.title }}</h1>
+
+        <!-- Date -->
+        <p class="text-muted small mb-3">
+            Published on {{ post.created_at|date:"d M Y, H:i" }}
+        </p>
+
+        <hr>
+
+        <!-- Content -->
+        <p class="fs-5 mt-3" style="line-height: 1.8;">
+            {{ post.content }}
+        </p>
+
+        <hr>
+
+        <!-- Buttons -->
+        <div class="d-flex justify-content-between mt-4">
+            <a href="{% url 'home' %}" class="btn btn-outline-secondary">
+                ← Back to Home
+            </a>
+
+            <div>
+                <a href="{% url 'edit-post' slug=post.slug %}" class="btn btn-warning me-2">
+                    ✏️ Edit
+                </a>
+                <a href="{% url 'delete-post' slug=post.slug %}" class="btn btn-danger">
+                    🗑️ Delete
+                </a>
+            </div>
+        </div>
+
+    </div>
+
+</div>
+
+{% endblock %}

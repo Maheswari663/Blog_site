@@ -1,0 +1,6 @@
+Django
+gunicorn
+pillow
+djangorestframework
+psycopg2-binary
+web: gunicorn blog.wsgi
